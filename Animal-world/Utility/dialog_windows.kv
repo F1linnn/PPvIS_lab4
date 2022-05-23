@@ -1,0 +1,65 @@
+#:import MDDropdownMenu kivymd.uix.menu.MDDropdownMenu
+#:import MDRaisedButton kivymd.uix.button.MDRaisedButton
+
+<TextField@MDTextField>:
+    size_hint: 0.5, 0.1
+    input_type: "text"
+
+<NumberField@TextField>:
+    input_type: "number"
+    input_filter: "int"
+    max_text_length: 1
+
+<BigNumberField@TextField>:
+    input_type: "number"
+    input_filter: "int"
+    max_text_length: 4
+
+<DialogContent>:
+
+    orientation: "vertical"
+    spacing: "12dp"
+    size_hint_y: None
+    height: "300dp"
+
+
+<SaveDialogContent>:
+    height: "50dp"
+
+    path: save_path
+
+    TextField:
+        id: save_path
+        hint_text: "Enter file name"
+
+
+<UploadDialogContent>:
+    height: "50dp"
+
+    path: upload_path
+
+    TextField:
+        id: upload_path
+        hint_text: "Enter file name"
+
+
+<InputDialogContent>:
+
+    height: "200dp"
+
+    animal_type: input_type
+    row_index: input_row_index
+    column_index: input_column_index
+
+    TextField:
+        id: input_type
+        hint_text: "Enter animal type"
+
+    NumberField:
+        id: input_row_index
+        hint_text: "Enter row index"
+
+    NumberField:
+        id: input_column_index
+        hint_text: "Enter column index"
+
