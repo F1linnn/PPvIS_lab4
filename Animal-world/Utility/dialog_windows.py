@@ -110,6 +110,24 @@ class SaveWindow(DialogWindow):
         self.dismiss()
         self.controller.close_dialog(self.content_cls.ids.save_path.text)
 
+class DeleteWindow(DialogWindow):
+    def __init__(self, **kwargs):
+        super().__init__(
+            title="Delete inhabitant: ",
+            content_cls=DeleteDialogContent(),
+            mode="delete",
+            controller=kwargs["controller"],
+            model=kwargs["model"]
+        )
+
+    def close(self, obj):
+        self.dismiss()
+        self.controller.close_dialog(
+            [
+                self.content_cls.ids.delete_animal_id.text
+            ]
+        )
+
 
 class UploadWindow(DialogWindow):
     def __init__(self, **kwargs):

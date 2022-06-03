@@ -98,7 +98,7 @@ class ScreenModel:
                     self.cells[raw_index][column_index].text += matrix[raw_index][column_index][animal_place] + "\n"
 
     def delete_animal(self, id):
-        found_animal = self.area.delete_animal(id)
+        found_animal = self.area.delete_animal_by_id(id)
         if found_animal:
             self.update_area()
         return found_animal

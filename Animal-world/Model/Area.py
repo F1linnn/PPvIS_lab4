@@ -29,6 +29,21 @@ class Area:
             if len(area_row) != self._width:
                 raise "Area should be rectangular size"
 
+    def delete_animal_by_id(self, inh_id: int, display=False):
+        found_animal = False
+        for row_line in self._area:
+            for cell in row_line:
+                for animal in cell.get_animals_in_cell():
+                    if animal.get_animal_id() == inh_id:
+                        cell.delete_animal(animal)
+                        found_animal = True
+                if cell.get_plant_on_cell() and inh_id == cell.get_plant_on_cell().get_id():
+                    cell.delete_plant()
+                    found_animal = True
+        if display:
+            self.display_area()
+        return found_animal
+
     def move_choise(self) -> None:
         for cell_line in self._area:
             for cell in cell_line:
@@ -413,3 +428,5 @@ def create_area_from_database(file_name: str) -> Area:
                 Cell(row_index, column_index, plant, inhabitant_list))
         all_cells.append(cell_row)
     return Area(all_cells, id)
+
+

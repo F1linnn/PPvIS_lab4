@@ -29,6 +29,7 @@ class ScreenController:
         else:
             Snackbar(text=f"Inhabitant with id = {data} not found!").open()
 
+
     def upload_from_file(self, file_name):
         self.model.read_from_file(file_name)
 
